@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 2, 6, 12;
+    --foreground: 226, 232, 240;
+    --accent: 34, 211, 238; /* Cyan-400 */
+    --accent-glow: rgba(34, 211, 238, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+
+  body {
+    @apply antialiased overflow-x-hidden;
+    background: radial-gradient(circle at 50% 50%, #0a101f 0%, #02060c 100%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .cyber-button-primary {
+    @apply relative flex items-center justify-center gap-2 px-8 py-3 rounded-md
+           bg-transparent border border-cyan-500/30 text-cyan-400 font-mono text-sm tracking-widest
+           transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/5 
+           hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] active:scale-[0.98];
+  }
+
+  .cyber-button-secondary {
+    @apply relative flex items-center justify-center gap-2 px-6 py-2 rounded-md
+           bg-transparent border border-slate-700/50 text-slate-400 font-mono text-xs tracking-wider
+           transition-all duration-300 hover:border-slate-600 hover:text-slate-300;
+  }
+
+  .cyber-panel {
+    @apply bg-slate-950/40 backdrop-blur-xl border border-slate-800/60 rounded-lg;
+  }
+}
+
+@layer utilities {
+  .bg-grid-slate-900 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.1)'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+  }
+}
+
