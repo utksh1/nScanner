@@ -22,16 +22,16 @@ npm run dev &
 
 sleep 5
 
-if command -v ngrok &> /dev/null; then
-    echo "------------------------------------------------"
-    echo "Starting Ngrok to expose Frontend..."
-    echo "Check the Ngrok URL below to access externally."
-    echo "------------------------------------------------"
-    ngrok http 3000
-else
-    echo "------------------------------------------------"
-    echo "Ngrok not found. Exposing frontend locally only."
-    echo "Install ngrok to share your scanner: https://ngrok.com"
-    echo "------------------------------------------------"
-    wait
-fi
+# if command -v ngrok &> /dev/null; then
+#     echo "------------------------------------------------"
+#     echo "Starting Ngrok to expose Frontend..."
+#     echo "Check the Ngrok URL below to access externally."
+#     echo "------------------------------------------------"
+#     ngrok http 3000
+# else
+#     echo "------------------------------------------------"
+#     echo "Ngrok not found. Exposing frontend locally only."
+#     echo "Install ngrok to share your scanner: https://ngrok.com"
+#     echo "------------------------------------------------"
+#     wait
+# fi
